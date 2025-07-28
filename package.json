@@ -1,0 +1,45 @@
+{
+  "name": "vehicle-rental-management-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/index.js",
+    "build": "tsc",
+    "migrate": "drizzle-kit migrate",
+    "seed": "tsx src/drizzle/seed.ts",
+    "lint": "eslint . --ext .ts",
+    "gen": "drizzle-kit generate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.1",
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.0",
+    "drizzle-orm": "^0.44.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.4",
+    "pg": "^8.16.3",
+    "stripe": "^18.3.0",
+    "swagger-ui-express": "^5.0.1",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^24.0.7",
+    "@types/pg": "^8.15.4",
+    "@types/stripe": "^8.0.417",
+    "@types/swagger-ui-express": "^4.1.8",
+    "drizzle-kit": "^0.31.4",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3"
+  }
+}
