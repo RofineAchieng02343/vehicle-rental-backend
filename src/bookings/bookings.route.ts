@@ -6,7 +6,8 @@ import {
   updateBookingHandler,
   deleteBookingHandler,
 } from "../bookings/bookings.controller"; 
-import { verifyAdmin, verifyAdminOrUser } from "middleware/auth.middleware";
+import { verifyAdmin, verifyAdminOrUser } from "../middleware/auth.middleware";
+
 
 const bookingRouter = Router();
 

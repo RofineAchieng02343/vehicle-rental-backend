@@ -2,16 +2,17 @@ import express, { Application, Response } from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 // ✅ Import routers
-import authRouter from "auth/auth.route";
-import locationsRouter from "locations/locations.route";
-import vehiclespecificationsRouter from "vehicleSpecifications/vehicleSpecifications.route";
-import bookingRouter from "bookings/bookings.route";
-import vehiclesRouter from "vehicles/vehicles.route";
-import usersRouter from "users/users.route";
+
 import swaggerUi from "swagger-ui-express";
 import { swaggerDocument } from "./docs/swagger";
-import paymentsRouter from "payments/payments.route";
-import supportRouter from "supportTickets/supportTickets.route";
+import supportRouter from "./supportTickets/supportTickets.route";
+import authRouter from "./auth/auth.route";
+import locationsRouter from "./locations/locations.route";
+import vehiclespecificationsRouter from "./vehicleSpecifications/vehicleSpecifications.route";
+import bookingRouter from "./bookings/bookings.route";
+import vehiclesRouter from "./vehicles/vehicles.route";
+import usersRouter from "./users/users.route";
+import paymentsRouter from "./payments/payments.route";
 
 dotenv.config();
 

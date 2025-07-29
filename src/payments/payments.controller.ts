@@ -47,15 +47,17 @@ export const handleSavePayment = async (req: Request, res: Response) => {
   const result = savePaymentSchema.safeParse(req.body);
 
   if (!result.success) {
-     res.status(400).json({
+    res.status(400).json({
       message: "Validation error",
       errors: result.error.flatten().fieldErrors,
     });
     return;
   }
 
+  const { amount, ...rest } = result.data;
+
   try {
-    const payment = await savePayment(result.data);
+    const payment = await savePayment({ amount, ...rest });
     res.status(201).json({
       message: "Payment saved successfully",
       payment,
@@ -67,6 +69,7 @@ export const handleSavePayment = async (req: Request, res: Response) => {
     });
   }
 };
+
 
 // ✅ Get all payments
 export const handleGetAllPayments = async (_req: Request, res: Response) => {

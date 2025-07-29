@@ -45,7 +45,6 @@ export async function createCheckoutSession(email: string, amount: number) {
   }
 }
 
-// ✅ Save payment record in DB
 export async function savePayment({
   booking_id,
   amount,
@@ -55,19 +54,24 @@ export async function savePayment({
   transaction_id,
 }: {
   booking_id: number;
-  amount: number;
+  amount: number | string;
   payment_status?: string;
-  payment_date: Date;
+  payment_date: Date | string;
   payment_method: string;
-  transaction_id: string;
+  transaction_id?: string;
 }) {
+  const formattedDate =
+    typeof payment_date === "string"
+      ? payment_date
+      : payment_date.toISOString().split("T")[0]; // ✅ "YYYY-MM-DD"
+
   const [payment] = await db
     .insert(payments)
     .values({
       booking_id,
-      amount,
+      amount: amount.toString(), // decimal expects string
       payment_status,
-      payment_date,
+      payment_date: formattedDate,
       payment_method,
       transaction_id,
     })
@@ -75,6 +79,8 @@ export async function savePayment({
 
   return payment;
 }
+
+
 
 // ✅ Get all payments
 export async function getAllPayments() {

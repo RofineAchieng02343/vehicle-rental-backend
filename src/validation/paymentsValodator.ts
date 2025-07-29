@@ -17,11 +17,10 @@ export const savePaymentSchema = z.object({
   payment_date: z
     .string({ required_error: "Payment date is required" })
     .regex(/^\d{4}-\d{2}-\d{2}$/, { message: "Use YYYY-MM-DD format" }),
-  amount_paid: z
+  amount: z
     .number({ invalid_type_error: "Amount must be a number" })
     .positive({ message: "Amount must be greater than 0" }),
   payment_method: z.string().min(2, "Payment method is required"),
-  payment_status: z
-    .enum(["Pending", "Completed", "Failed"])
-    .default("Pending"),
+  payment_status: z.string().default("Pending"),
+  
 });
