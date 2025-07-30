@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "start": "node build/index.js",
+    "start": "node dist/server.js",
     "build": "tsc",
     "migrate": "drizzle-kit migrate",
     "seed": "tsx src/drizzle/seed.ts",
